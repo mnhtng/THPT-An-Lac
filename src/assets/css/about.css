@@ -1,0 +1,156 @@
+/* About page styles */
+.about-section {
+    padding: 80px 0;
+}
+
+.content-wrapper {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.content-wrapper .section-header {
+    text-align: left;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.content-wrapper .section-header h1 {
+    color: #1e3a8a;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.content-wrapper .section-header .lead {
+    color: #666;
+    font-size: 1.2rem;
+}
+
+/* Vision Mission Styles */
+.vision-mission {
+    margin: 30px 0;
+}
+
+.vision,
+.mission {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.vision h3,
+.mission h3 {
+    color: #1e3a8a;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.vision h3 i,
+.mission h3 i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+/* Core Values Styles */
+.core-values {
+    margin: 30px 0;
+}
+
+.value-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.value-icon {
+    flex: 0 0 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    font-size: 24px;
+}
+
+.value-content h4 {
+    color: #1e3a8a;
+    margin-bottom: 8px;
+}
+
+.value-content p {
+    color: #666;
+    margin: 0;
+}
+
+/* Facility List Styles */
+.facility-list {
+    list-style: none;
+    padding: 0;
+}
+
+.facility-list li {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.facility-list i {
+    color: #10b981;
+    margin-right: 12px;
+    font-size: 16px;
+}
+
+/* Achievement List Styles */
+.achievement-list {
+    list-style: none;
+    padding: 0;
+}
+
+.achievement-list li {
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.achievement-list li:last-child {
+    border-bottom: none;
+}
+
+.achievement-list i {
+    margin-right: 12px;
+    font-size: 18px;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* About responsive styles */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-wrapper {
+        padding: 25px;
+    }
+
+    .content-wrapper .section-header h1 {
+        font-size: 2rem;
+    }
+}
