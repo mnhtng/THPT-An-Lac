@@ -1,0 +1,62 @@
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Prevent access to sensitive files
+<Files "*.sql">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "*.log">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "installed.txt">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Prevent directory listing
+Options -Indexes
+
+# Protect config directory
+<Directory "config">
+    Order allow,deny
+    Deny from all
+</Directory>
+
+# Allow access to uploads directory for images
+<Directory "uploads">
+    Order allow,deny
+    Allow from all
+    
+    # Only allow image files
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp)$">
+        Order allow,deny
+        Allow from all
+    </FilesMatch>
+    
+    # Deny access to other file types
+    <FilesMatch "\.(php|html|htm|txt|log|sql)$">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+</Directory>
+
+# PHP settings
+<IfModule mod_php.c>
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    php_value max_execution_time 300
+    php_value memory_limit 256M
+</IfModule>
+
+# Error pages
+ErrorDocument 403 /src/modules/auth/login.php
+ErrorDocument 404 /src/modules/auth/login.php
