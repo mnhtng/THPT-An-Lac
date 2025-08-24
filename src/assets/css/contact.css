@@ -20,6 +20,7 @@
 
 .contact-item {
     display: flex;
+    align-items: center;
     margin-bottom: 30px;
 }
 
@@ -65,16 +66,6 @@
     color: #333;
     text-decoration: none;
     padding: 10px 0;
-    transition: color 0.3s;
-}
-
-.social-link:hover {
-    color: #1e3a8a;
-}
-
-.social-link i {
-    margin-right: 10px;
-    width: 20px;
 }
 
 /* Map Styles */
@@ -88,8 +79,8 @@
 
 .map-overlay {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 10px;
+    left: 10px;
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -149,12 +140,5 @@
     .contact-form-wrapper,
     .contact-info-wrapper {
         padding: 25px;
-    }
-
-    .map-overlay {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        margin-top: 20px;
     }
 }

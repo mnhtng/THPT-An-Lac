@@ -1,20 +1,4 @@
 $(document).ready(function () {
-    // Mobile menu close when clicking outside
-    $(document).on('click', function (event) {
-        var $navbar = $('.navbar-collapse');
-        if (!$(event.target).closest('.navbar').length && $navbar.hasClass('show')) {
-            $navbar.collapse('hide');
-        }
-    });
-
-    // Close mobile menu when clicking nav links
-    $('.navbar-nav .nav-link').on('click', function () {
-        var $navbar = $('.navbar-collapse');
-        if ($navbar.hasClass('show')) {
-            $navbar.collapse('hide');
-        }
-    });
-
     // Smooth scrolling for anchor links
     $('a[href^="#"]').on('click', function (event) {
         var target = $(this.getAttribute('href'));
@@ -45,40 +29,6 @@ $(document).ready(function () {
 
     enableDropdownHover();
     $(window).on('resize', enableDropdownHover);
-
-    // Mobile navbar overlay + lock body scroll
-    var $overlay = $('<div class="nav-overlay"></div>');
-    $('body').append($overlay);
-
-    $('#navbarNav')
-        .on('show.bs.collapse', function () {
-            $('body').addClass('menu-open');
-            $overlay.addClass('show');
-            $('.navbar-toggler').addClass('active');
-        })
-        .on('shown.bs.collapse', function () {
-            // ensure overlay visible
-            $overlay.addClass('show');
-        })
-        .on('hide.bs.collapse', function () {
-            $('body').removeClass('menu-open');
-            $overlay.removeClass('show');
-            $('.navbar-toggler').removeClass('active');
-        })
-        .on('hidden.bs.collapse', function () {
-            $overlay.removeClass('show');
-        });
-
-    $overlay.on('click', function () {
-        $('#navbarNav').collapse('hide');
-    });
-
-    // Close mobile menu when clicking on nav links (except dropdowns)
-    $('.navbar-nav .nav-link:not(.dropdown-toggle)').on('click', function () {
-        if (window.innerWidth < 992) {
-            $('#navbarNav').collapse('hide');
-        }
-    });
 
     // Improve dropdown behavior on mobile: toggle submenu on click, not navigate
     $('.navbar .dropdown > .dropdown-toggle').on('click', function (e) {
@@ -135,23 +85,6 @@ $(document).ready(function () {
         });
     }
 
-    // Trigger counter animation when visible
-    var counterAnimated = false;
-    $(window).scroll(function () {
-        var statsWidget = $('.stats-widget');
-        if (statsWidget.length && !counterAnimated) {
-            var elementTop = statsWidget.offset().top;
-            var elementBottom = elementTop + statsWidget.outerHeight();
-            var viewportTop = $(window).scrollTop();
-            var viewportBottom = viewportTop + $(window).height();
-
-            if (elementBottom > viewportTop && elementTop < viewportBottom) {
-                animateCounters();
-                counterAnimated = true;
-            }
-        }
-    });
-
     // Carousel auto play
     $('#heroCarousel').carousel({
         interval: 5000,
@@ -200,7 +133,7 @@ $(document).ready(function () {
     });
 
     // Back to top button
-    var backToTop = $('<button class="back-to-top"><i class="fas fa-chevron-up"></i></button>');
+    let backToTop = $('<button class="back-to-top"><i class="fas fa-chevron-up"></i></button>');
     $('body').append(backToTop);
 
     $(window).scroll(function () {
@@ -212,7 +145,7 @@ $(document).ready(function () {
     });
 
     backToTop.on('click', function () {
-        $('html, body').animate({ scrollTop: 0 }, 800);
+        $('html, body').animate({ scrollTop: 0 }, 10);
     });
 });
 

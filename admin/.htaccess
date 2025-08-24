@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Handle clean URLs for your application
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Route all requests to index.php
+RewriteRule ^(.*)$ index.php [L,QSA]
+
+# Handle specific pattern (if still needed)
+RewriteRule ^([a-z0-9-]+)-([0-9]+).html$ index.php [L,QSA]
